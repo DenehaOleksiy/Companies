@@ -17,7 +17,7 @@ public class MainCompany {
     @Column
     private int annual_earnings;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "mainCompany")
+    @OneToMany(orphanRemoval=true,fetch = FetchType.EAGER, mappedBy = "mainCompany")
     private List<SubCompanies> subCompaniesList;
 
     public MainCompany() {

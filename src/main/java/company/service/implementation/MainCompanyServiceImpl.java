@@ -22,9 +22,15 @@ public class MainCompanyServiceImpl implements MainCompanyService {
         mainCompanyRepo.save(mainCompany);
     }
 
+//
+
     @Override
-    public void edit(MainCompany mainCompany) {
-    mainCompanyRepo.save(mainCompany);
+    public void edit(Integer id, String name, Integer annual_earnings) {
+        MainCompany mainCompany = new MainCompany();
+        mainCompany.setId(id);
+        mainCompany.setName(name);
+        mainCompany.setAnnual_earnings(annual_earnings);
+        mainCompanyRepo.save(mainCompany);
     }
 
     @Override

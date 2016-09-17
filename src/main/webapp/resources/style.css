@@ -1,0 +1,36 @@
+body{
+    background-color: lavender;
+}
+
+a, button{
+    background-color: aliceblue;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 5px;
+    border: 1px solid darkblue;
+    border-radius: 3px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.6);
+
+}
+a:hover,button:hover{
+    background-color: khaki;
+}
+
+.home{
+    float: left;
+    padding: 15px;
+    background-color: aquamarine;
+}
+.page{
+    width: auto;
+    background-color: lightyellow;
+    border: 1px solid blue;
+    border-radius: 5px;
+    float: left;
+    text-align: center;
+    box-shadow: 5px 5px 7px rgba(0,0,0,0.6);
+    padding: 10px;
+    margin: 20px;
+}

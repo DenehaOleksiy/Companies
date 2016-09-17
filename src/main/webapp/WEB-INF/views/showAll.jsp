@@ -10,12 +10,21 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="/resources/style.css">
+
 </head>
 <body>
 
 <c:forEach items="${showAll}" var="a">
-    <p>${a.name}</p>
-    <p>${a.annual_earnings}</p>
+<div class="page">
+    <p style="text-align: center; font-diameter: 14pt;">${a.name}</p>
+    <p style="text-align: center; font-diameter: 14pt;">${a.annual_earnings}</p>
+
+    <p><a  href="/main/edit/${a.id}">Edit Main Company</a></p>
+    <p><a  href="/main/delete/${a.id}">Delete Main Company</a></p>
+</div>
 </c:forEach>
+
+<p><a class="home" href="/">Home</a></p>
 </body>
 </html>

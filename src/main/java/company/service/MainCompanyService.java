@@ -10,8 +10,9 @@ import java.util.List;
 public interface MainCompanyService {
 
     void add(MainCompany mainCompany);
-    void edit(MainCompany mainCompany);
+   // void edit(MainCompany mainCompany);
     void remove(int id);
     MainCompany findOneById(int id);
     List<MainCompany> findAll();
+    void edit(Integer id, String name, Integer annual_earnings);
 }

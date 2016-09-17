@@ -11,6 +11,8 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="/resources/style.css">
+
 </head>
 <body>
 

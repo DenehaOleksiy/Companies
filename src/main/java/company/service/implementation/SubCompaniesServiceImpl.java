@@ -27,10 +27,10 @@ public class SubCompaniesServiceImpl implements SubCompaniesService {
 //        subCompaniesRepo.save(subCompanies);
 //    }
 
-    @Override
-    public void edit(SubCompanies subCompanies) {
-    subCompaniesRepo.save(subCompanies);
-    }
+//    @Override
+//    public void edit(SubCompanies subCompanies) {
+//    subCompaniesRepo.save(subCompanies);
+//    }
 
     @Override
     public void remove(int id) {
@@ -52,6 +52,17 @@ public class SubCompaniesServiceImpl implements SubCompaniesService {
         SubCompanies subCompanies = new SubCompanies();
         subCompanies.setAnnual_earnings(annual_earnings);
         subCompanies.setName(name);
+        MainCompany mainCompany = mainCompanyRepo.findOne(mainId);
+        subCompanies.setMainCompany(mainCompany);
+        subCompaniesRepo.save(subCompanies);
+    }
+
+    @Override
+    public void edit(Integer id, String name, Integer annual_earnings, Integer mainId) {
+        SubCompanies subCompanies = new SubCompanies();
+        subCompanies.setId(id);
+        subCompanies.setName(name);
+        subCompanies.setAnnual_earnings(annual_earnings);
         MainCompany mainCompany = mainCompanyRepo.findOne(mainId);
         subCompanies.setMainCompany(mainCompany);
         subCompaniesRepo.save(subCompanies);

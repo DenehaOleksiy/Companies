@@ -10,6 +10,8 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="/resources/style.css">
+
 </head>
 <body>
 <form action="/add/subSub" method="post" >
