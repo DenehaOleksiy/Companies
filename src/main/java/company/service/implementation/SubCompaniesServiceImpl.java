@@ -78,8 +78,8 @@ public class SubCompaniesServiceImpl implements SubCompaniesService {
     }
 
     @Override
-    public Integer total(Integer id) {
-       Integer integer = subCompaniesRepo.total(id);
+    public Integer total() {
+        Integer integer = subCompaniesRepo.totalSum();
         return integer;
     }
 }

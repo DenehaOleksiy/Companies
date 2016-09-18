@@ -16,4 +16,6 @@ public interface MainCompanyService {
     List<MainCompany> findAll();
     void edit(Integer id, String name, Integer annual_earnings);
     Integer earn(Integer id);
+
+    Integer total();
 }

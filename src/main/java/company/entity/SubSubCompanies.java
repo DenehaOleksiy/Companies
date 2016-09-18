@@ -17,7 +17,7 @@ public class SubSubCompanies {
     @Column
     private int annual_earnings;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private SubCompanies subCompanies;
 
     public SubSubCompanies() {

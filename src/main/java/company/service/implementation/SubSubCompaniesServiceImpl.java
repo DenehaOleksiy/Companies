@@ -73,4 +73,6 @@ public class SubSubCompaniesServiceImpl implements SubSubCompaniesService {
     Integer integer = subSubCompaniesRepo.earn(id);
         return integer;
     }
+
+
 }

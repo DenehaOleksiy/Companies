@@ -155,7 +155,7 @@ public class MainController {
         model.addAttribute("earn",subSubCompanies);
         Integer i = subSubCompaniesService.earn(Integer.parseInt(id));
         model.addAttribute("intes",i);
-        System.out.println(id);
+        //System.out.println(id);
         return "subSubEarn";
     }
     @RequestMapping(value = "/sub/earn/{id}")
@@ -164,7 +164,7 @@ public class MainController {
         model.addAttribute("earn",subCompanies);
         Integer i = subCompaniesService.earn(Integer.parseInt(id));
         model.addAttribute("intes",i);
-        System.out.println(id);
+       // System.out.println(id);
         return "subEarn";
     }
     @RequestMapping(value = "/main/earn/{id}")
@@ -181,8 +181,19 @@ public class MainController {
     public String totalSub(@PathVariable String id, Model model){
         SubCompanies subCompanies = subCompaniesService.findOneById(Integer.parseInt(id));
         model.addAttribute("earn", subCompanies);
-        Integer integer = subCompaniesService.total(Integer.parseInt(id));
-        model.addAttribute("intes",integer);
+        Integer integer = subCompaniesService.total() + subCompanies.getAnnual_earnings();
+        model.addAttribute("total", integer);
+       // System.out.println(integer);
         return "totalSub";
+    }
+
+    @RequestMapping(value = "/main/total/{id}")
+    public String mainSub(@PathVariable String id, Model model){
+        MainCompany mainCompany = mainCompanyService.findOneById(Integer.parseInt(id));
+        model.addAttribute("earn", mainCompany);
+        Integer integer = mainCompanyService.total() + mainCompany.getAnnual_earnings();
+        model.addAttribute("total", integer);
+        // System.out.println(integer);
+        return "totalMain";
     }
 }

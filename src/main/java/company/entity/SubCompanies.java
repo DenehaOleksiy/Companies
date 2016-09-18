@@ -2,6 +2,7 @@ package company.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -22,11 +23,13 @@ public class SubCompanies {
 
     private Integer totalSum =0;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private MainCompany mainCompany;
 
-    @OneToMany( fetch = FetchType.EAGER, mappedBy = "subCompanies")
+    @OneToMany(mappedBy = "subCompanies" ,fetch = FetchType.EAGER)
     private List<SubSubCompanies>subSubCompanies;
+
+
 //orphanRemoval=true,
 
     public SubCompanies() {

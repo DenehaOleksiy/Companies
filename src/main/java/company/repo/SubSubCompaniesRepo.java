@@ -12,4 +12,6 @@ public interface SubSubCompaniesRepo extends JpaRepository<SubSubCompanies,Integ
 
     @Query("select a.annual_earnings from SubSubCompanies a where a.id =:param")
     Integer earn(@Param("param") Integer id);
+
+
 }

@@ -53,4 +53,10 @@ public class MainCompanyServiceImpl implements MainCompanyService {
         Integer integer = mainCompanyRepo.earn(id);
         return integer;
     }
+
+    @Override
+    public Integer total() {
+       Integer integer = mainCompanyRepo.totalSum();
+        return integer;
+    }
 }

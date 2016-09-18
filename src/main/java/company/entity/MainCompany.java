@@ -2,6 +2,7 @@ package company.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -21,8 +22,10 @@ public class MainCompany {
 
     private Integer totalSum =0;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "mainCompany")
+    @OneToMany(mappedBy = "mainCompany",fetch = FetchType.EAGER)
     private List<SubCompanies> subCompaniesList;
+
+
 
     public MainCompany() {
     }
