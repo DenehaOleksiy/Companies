@@ -19,6 +19,7 @@
 <div class="page">
     <p style="text-align: center; font-diameter: 14pt;">${a.name}</p>
     <p style="text-align: center; font-diameter: 14pt;">${a.annual_earnings}</p>
+    <%--<p style="text-align: center; font-diameter: 14pt;">${a.totalSum}</p>--%>
 
     <p><a  href="/sub/edit/${a.id}">Edit Sub Company</a></p>
     <p><a  href="/sub/delete/${a.id}">Delete Sub Company</a></p>

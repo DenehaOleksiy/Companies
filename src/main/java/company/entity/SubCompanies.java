@@ -1,6 +1,7 @@
 package company.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,13 +19,27 @@ public class SubCompanies {
     @Column
     private int annual_earnings;
 
+
+    private Integer totalSum =0;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private MainCompany mainCompany;
 
     @OneToMany( fetch = FetchType.EAGER, mappedBy = "subCompanies")
     private List<SubSubCompanies>subSubCompanies;
 //orphanRemoval=true,
+
     public SubCompanies() {
+
+    }
+
+    public Integer getTotalSum() {
+        return totalSum;
+    }
+
+    public void setTotalSum(Integer totalSum) {
+
+        this.totalSum = totalSum;
     }
 
     public int getId() {

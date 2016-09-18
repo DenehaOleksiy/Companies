@@ -52,6 +52,8 @@ public class SubSubCompaniesServiceImpl implements SubSubCompaniesService {
         subSubCompanies.setName(name);
         SubCompanies subCompanies = subCompaniesRepo.findOne(subId);
         subSubCompanies.setSubCompanies(subCompanies);
+        int a = annual_earnings;
+        subCompanies.setTotalSum(subCompanies.getTotalSum() + a);
         subSubCompaniesRepo.save(subSubCompanies);
     }
 

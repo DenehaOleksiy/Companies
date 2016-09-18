@@ -9,15 +9,15 @@ import java.util.List;
  */
 public interface SubCompaniesService {
 
-  //  void add(SubCompanies subCompanies);
+    // void add(SubCompanies subCompanies);
     //void edit(SubCompanies subCompanies);
     void remove(int id);
     SubCompanies findOneById(int id);
     List<SubCompanies> findAll();
 
-    void add(Integer mainId, String name,Integer annual_earnings);
-  void edit(Integer id,String name,Integer annual_earnings,Integer mainId);
+   void add(Integer mainId, String name,Integer annual_earnings);
+   void edit(Integer id,String name,Integer annual_earnings,Integer mainId);
    Integer earn(Integer id);
 
-  Integer total(Integer id);
+   Integer total(Integer id);
 }

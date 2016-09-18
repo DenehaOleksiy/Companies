@@ -33,6 +33,7 @@ public class MainController {
         return "home";
     }
 
+    //====== show ==========
     @RequestMapping(value = "/showMain", method = RequestMethod.GET)
     public String showAll(Model model){
         List<MainCompany>mainCompanies = mainCompanyService.findAll();
@@ -52,7 +53,7 @@ public class MainController {
         return "subSubAll";
     }
 
-
+//============ add ====================
     @RequestMapping(value = "/add/MainCompany")
     public String addForm(Model model){
         model.addAttribute("new", new MainCompany());
@@ -63,7 +64,6 @@ public class MainController {
     mainCompanyService.add(mainCompany);
         return "redirect:/showMain";
     }
-
 
     @RequestMapping(value = "/add/subCompany")
     public String addSub(Model model){
@@ -89,6 +89,7 @@ public class MainController {
         return "redirect:/subSubAll";
     }
 
+    //========= delete ============
     @RequestMapping(value = "/main/delete/{id}")
     public String delMain(@PathVariable String id){
         mainCompanyService.remove(Integer.parseInt(id));
@@ -107,12 +108,12 @@ public class MainController {
         return "redirect:/subSubAll";
     }
 
+    //======== edit ============
     @RequestMapping(value = "/main/edit/{id}")
     public String edMain(@PathVariable String id,Model model){
     model.addAttribute("edit",mainCompanyService.findOneById(Integer.parseInt(id)));
         return "editMain";
     }
-
     @RequestMapping(value = "/edit/main",method = RequestMethod.POST)
     public String editMain(@RequestParam Integer id, @RequestParam String name, @RequestParam Integer annual_earnings){
         mainCompanyService.edit(id,name,annual_earnings);
@@ -147,6 +148,7 @@ public class MainController {
         return "redirect:/subSubAll";
     }
 
+    //========== earnings ============
     @RequestMapping(value = "/subSub/earn/{id}")
     public String subSub(@PathVariable String id,Model model){
       SubSubCompanies subSubCompanies= subSubCompaniesService.findOneById(Integer.parseInt(id));
@@ -174,6 +176,7 @@ public class MainController {
         return "mainEarn";
     }
 
+    //======== total ==========
     @RequestMapping(value = "/sub/total/{id}")
     public String totalSub(@PathVariable String id, Model model){
         SubCompanies subCompanies = subCompaniesService.findOneById(Integer.parseInt(id));

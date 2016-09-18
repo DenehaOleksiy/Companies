@@ -19,10 +19,12 @@
 <div class="page">
     <p style="text-align: center; font-diameter: 14pt;">${a.name}</p>
     <p style="text-align: center; font-diameter: 14pt;">${a.annual_earnings}</p>
+    <%--<p style="text-align: center; font-diameter: 14pt;">${a.totalSum}</p>--%>
 
     <p><a  href="/main/edit/${a.id}">Edit Main Company</a></p>
     <p><a  href="/main/delete/${a.id}">Delete Main Company</a></p>
     <p><a  href="/main/earn/${a.id}">Main Company earn</a></p>
+    <p><a  href="/main/total/${a.id}">Company + sub earn</a></p>
 </div>
 </c:forEach>
 
