@@ -9,6 +9,7 @@ import company.service.SubSubCompaniesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,11 +33,11 @@ public class MainController {
         return "home";
     }
 
-    @RequestMapping(value = "/showsAll", method = RequestMethod.GET)
+    @RequestMapping(value = "/showMain", method = RequestMethod.GET)
     public String showAll(Model model){
         List<MainCompany>mainCompanies = mainCompanyService.findAll();
         model.addAttribute("showAll",mainCompanies);
-        return "showAll";
+        return "showMain";
     }
     @RequestMapping(value = "/subAll", method = RequestMethod.GET)
     public String subAll(Model model){
@@ -60,7 +61,7 @@ public class MainController {
     @RequestMapping(value = "/add/Main", method = RequestMethod.POST)
     public String addMain(@ModelAttribute MainCompany mainCompany){
     mainCompanyService.add(mainCompany);
-        return "redirect:/showsAll";
+        return "redirect:/showMain";
     }
 
 
@@ -91,7 +92,7 @@ public class MainController {
     @RequestMapping(value = "/main/delete/{id}")
     public String delMain(@PathVariable String id){
         mainCompanyService.remove(Integer.parseInt(id));
-        return "redirect:/showsAll";
+        return "redirect:/showMain";
     }
 
     @RequestMapping(value = "/sub/delete/{id}")
@@ -115,7 +116,7 @@ public class MainController {
     @RequestMapping(value = "/edit/main",method = RequestMethod.POST)
     public String editMain(@RequestParam Integer id, @RequestParam String name, @RequestParam Integer annual_earnings){
         mainCompanyService.edit(id,name,annual_earnings);
-        return "redirect:/showsAll";
+        return "redirect:/showMain";
     }
 
     @RequestMapping(value = "/sub/edit/{id}")
@@ -144,5 +145,41 @@ public class MainController {
                           @RequestParam("sub") Integer subId ){
         subSubCompaniesService.edit(id,name,annual_earnings,subId);
         return "redirect:/subSubAll";
+    }
+
+    @RequestMapping(value = "/subSub/earn/{id}")
+    public String subSub(@PathVariable String id,Model model){
+      SubSubCompanies subSubCompanies= subSubCompaniesService.findOneById(Integer.parseInt(id));
+        model.addAttribute("earn",subSubCompanies);
+        Integer i = subSubCompaniesService.earn(Integer.parseInt(id));
+        model.addAttribute("intes",i);
+        System.out.println(id);
+        return "subSubEarn";
+    }
+    @RequestMapping(value = "/sub/earn/{id}")
+    public String subEarn(@PathVariable String id, Model model){
+        SubCompanies subCompanies = subCompaniesService.findOneById(Integer.parseInt(id));
+        model.addAttribute("earn",subCompanies);
+        Integer i = subCompaniesService.earn(Integer.parseInt(id));
+        model.addAttribute("intes",i);
+        System.out.println(id);
+        return "subEarn";
+    }
+    @RequestMapping(value = "/main/earn/{id}")
+    public String mainEarn(@PathVariable String id, Model model){
+        MainCompany mainCompany = mainCompanyService.findOneById(Integer.parseInt(id));
+        model.addAttribute("earn",mainCompany);
+        Integer i = mainCompanyService.earn(Integer.parseInt(id));
+        model.addAttribute("intes",i);
+        return "mainEarn";
+    }
+
+    @RequestMapping(value = "/sub/total/{id}")
+    public String totalSub(@PathVariable String id, Model model){
+        SubCompanies subCompanies = subCompaniesService.findOneById(Integer.parseInt(id));
+        model.addAttribute("earn", subCompanies);
+        Integer integer = subCompaniesService.total(Integer.parseInt(id));
+        model.addAttribute("intes",integer);
+        return "totalSub";
     }
 }

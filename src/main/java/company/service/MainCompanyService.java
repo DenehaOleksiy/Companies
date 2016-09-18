@@ -15,4 +15,5 @@ public interface MainCompanyService {
     MainCompany findOneById(int id);
     List<MainCompany> findAll();
     void edit(Integer id, String name, Integer annual_earnings);
+    Integer earn(Integer id);
 }

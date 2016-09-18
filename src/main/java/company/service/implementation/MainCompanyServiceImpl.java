@@ -47,4 +47,10 @@ public class MainCompanyServiceImpl implements MainCompanyService {
     public List<MainCompany> findAll() {
         return mainCompanyRepo.findAll();
     }
+
+    @Override
+    public Integer earn(Integer id) {
+        Integer integer = mainCompanyRepo.earn(id);
+        return integer;
+    }
 }

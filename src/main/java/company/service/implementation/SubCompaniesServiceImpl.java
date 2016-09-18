@@ -67,4 +67,16 @@ public class SubCompaniesServiceImpl implements SubCompaniesService {
         subCompanies.setMainCompany(mainCompany);
         subCompaniesRepo.save(subCompanies);
     }
+
+    @Override
+    public Integer earn(Integer id) {
+        Integer i = subCompaniesRepo.earn(id);
+        return i;
+    }
+
+    @Override
+    public Integer total(Integer id) {
+       Integer integer = subCompaniesRepo.total(id);
+        return integer;
+    }
 }

@@ -21,7 +21,7 @@ public class SubCompanies {
     @ManyToOne(fetch = FetchType.EAGER)
     private MainCompany mainCompany;
 
-    @OneToMany(orphanRemoval=true,fetch = FetchType.EAGER, mappedBy = "subCompanies")
+    @OneToMany( fetch = FetchType.EAGER, mappedBy = "subCompanies")
     private List<SubSubCompanies>subSubCompanies;
 //orphanRemoval=true,
     public SubCompanies() {

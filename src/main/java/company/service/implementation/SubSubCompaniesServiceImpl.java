@@ -65,4 +65,10 @@ public class SubSubCompaniesServiceImpl implements SubSubCompaniesService {
         subSubCompanies.setSubCompanies(subCompanies);
         subSubCompaniesRepo.save(subSubCompanies);
     }
+
+    @Override
+    public Integer earn(Integer id) {
+    Integer integer = subSubCompaniesRepo.earn(id);
+        return integer;
+    }
 }

@@ -22,6 +22,7 @@
 
     <p><a  href="/main/edit/${a.id}">Edit Main Company</a></p>
     <p><a  href="/main/delete/${a.id}">Delete Main Company</a></p>
+    <p><a  href="/main/earn/${a.id}">Main Company earn</a></p>
 </div>
 </c:forEach>
 

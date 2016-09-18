@@ -14,5 +14,6 @@ public interface SubSubCompaniesService {
     SubSubCompanies findOneById(int id);
     List<SubSubCompanies> findAll();
     void add(Integer subId, String name,Integer annual_earnings);
- void edit(Integer id,String name,Integer annual_earnings,Integer subId);
+    void edit(Integer id,String name,Integer annual_earnings,Integer subId);
+    Integer earn(Integer id);
 }

@@ -22,6 +22,8 @@
 
     <p><a  href="/sub/edit/${a.id}">Edit Sub Company</a></p>
     <p><a  href="/sub/delete/${a.id}">Delete Sub Company</a></p>
+    <p><a  href="/sub/earn/${a.id}">Sub Company earn</a></p>
+    <p><a  href="/sub/total/${a.id}">Company + sub earn</a></p>
 </div>
 </c:forEach>
 
