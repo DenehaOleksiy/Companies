@@ -13,13 +13,13 @@
 
 </head>
 <body>
-
-<a href="/showMain">Show all mainCompanies</a>
-<a href="/subAll">Show all subCompanies</a>
-<a href="/subSubAll">Show all subSubCompanies</a>
-<a href="/add/MainCompany">Add Main Company</a>
-<a href="/add/subCompany">Add subCompany</a>
-<a href="/add/subSubCompany">Add subSubCompany</a>
-
+<ul>
+    <li><a href="/showMain">Show all mainCompanies</a></li>
+    <li><a href="/subAll">Show all subCompanies</a></li>
+    <li><a href="/subSubAll">Show all subSubCompanies</a></li>
+    <li><a href="/add/MainCompany">Add Main Company</a></li>
+    <li><a href="/add/subCompany">Add subCompany</a></li>
+    <li><a href="/add/subSubCompany">Add subSubCompany</a></li>
+</ul>
 </body>
 </html>

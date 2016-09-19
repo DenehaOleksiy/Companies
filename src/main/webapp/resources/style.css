@@ -12,10 +12,17 @@ a, button{
     border: 1px solid darkblue;
     border-radius: 3px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.6);
+    margin-top: 10px;
 
 }
 a:hover,button:hover{
     background-color: khaki;
+}
+
+input, select{
+    padding: 5px;
+    border: 1px darkgray solid;
+    margin-right: 10px;
 }
 
 .home{
@@ -33,4 +40,13 @@ a:hover,button:hover{
     box-shadow: 5px 5px 7px rgba(0,0,0,0.6);
     padding: 10px;
     margin: 20px;
+}
+ul{
+    margin: auto;
+    width: 85%;
+}
+ul li{
+    list-style: none;
+    float: left;
+    margin-right: 10px;
 }

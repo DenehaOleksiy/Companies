@@ -17,5 +17,5 @@ public interface MainCompanyService {
     void edit(Integer id, String name, Integer annual_earnings);
     Integer earn(Integer id);
 
-    Integer total();
+    Integer total(int id);
 }

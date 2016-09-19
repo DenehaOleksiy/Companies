@@ -22,7 +22,7 @@ public class MainCompany {
 
     private Integer totalSum =0;
 
-    @OneToMany(mappedBy = "mainCompany",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "mainCompany",fetch = FetchType.EAGER)
     private List<SubCompanies> subCompaniesList;
 
 
@@ -69,4 +69,6 @@ public class MainCompany {
     public void setSubCompaniesList(List<SubCompanies> subCompaniesList) {
         this.subCompaniesList = subCompaniesList;
     }
+
+
 }

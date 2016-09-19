@@ -14,13 +14,14 @@
 
 </head>
 <body>
-
+<div class="form">
 <form:form action="/add/Main" method="post" modelAttribute="new">
     <form:label path="name">Enter Company name</form:label>
     <form:input path="name"/>
     <form:label path="annual_earnings">Enter Company annual_earnings</form:label>
     <form:input path="annual_earnings"/>
-    <form:button value="submit">Add</form:button>
+    <form:button  value="submit">Add</form:button>
 </form:form>
+</div>
 </body>
 </html>

@@ -26,7 +26,7 @@ public class SubCompanies {
     @ManyToOne(fetch = FetchType.LAZY)
     private MainCompany mainCompany;
 
-    @OneToMany(mappedBy = "subCompanies" ,fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "subCompanies" ,fetch = FetchType.EAGER)
     private List<SubSubCompanies>subSubCompanies;
 
 
@@ -84,4 +84,6 @@ public class SubCompanies {
     public void setSubSubCompanies(List<SubSubCompanies> subSubCompanies) {
         this.subSubCompanies = subSubCompanies;
     }
+
+
 }

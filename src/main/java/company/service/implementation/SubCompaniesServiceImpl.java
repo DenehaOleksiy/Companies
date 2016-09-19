@@ -2,8 +2,10 @@ package company.service.implementation;
 
 import company.entity.MainCompany;
 import company.entity.SubCompanies;
+import company.entity.SubSubCompanies;
 import company.repo.MainCompanyRepo;
 import company.repo.SubCompaniesRepo;
+import company.repo.SubSubCompaniesRepo;
 import company.service.SubCompaniesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,11 @@ public class SubCompaniesServiceImpl implements SubCompaniesService {
     @Autowired
     private MainCompanyRepo mainCompanyRepo;
 
+
+    //створюємо для доступу до сабКомпаній
+    @Autowired
+    private SubSubCompaniesRepo subSubCompaniesRepo;
+
 //    @Override
 //    public void add(SubCompanies subCompanies) {
 //        subCompaniesRepo.save(subCompanies);
@@ -34,7 +41,7 @@ public class SubCompaniesServiceImpl implements SubCompaniesService {
 
     @Override
     public void remove(int id) {
-    subCompaniesRepo.delete(id);
+        subCompaniesRepo.delete(id);
     }
 
     @Override
@@ -77,9 +84,19 @@ public class SubCompaniesServiceImpl implements SubCompaniesService {
         return i;
     }
 
+
+
+
     @Override
-    public Integer total() {
+    public Integer total(int id) {
         Integer integer = subCompaniesRepo.totalSum();
+        int subSubEarn = 0;
+        List<SubSubCompanies> subSubCompanies = subSubCompaniesRepo.bySubCompany(id);
+
+        for (SubSubCompanies ssc:subSubCompanies) {
+            subSubEarn += ssc.getAnnual_earnings();
+        }
+        integer += subSubEarn;
         return integer;
     }
 }

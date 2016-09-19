@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 /**
  * Created by Администратор on 15.09.2016.
  */
@@ -15,5 +17,6 @@ public interface MainCompanyRepo extends JpaRepository<MainCompany,Integer> {
 
     @Query("select a.totalSum from MainCompany a")
     Integer totalSum();
+
 
 }

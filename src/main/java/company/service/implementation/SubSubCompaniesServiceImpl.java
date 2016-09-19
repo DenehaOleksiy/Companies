@@ -32,7 +32,7 @@ public class SubSubCompaniesServiceImpl implements SubSubCompaniesService {
 
     @Override
     public void remove(int id) {
-    subSubCompaniesRepo.delete(id);
+        subSubCompaniesRepo.delete(id);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class SubSubCompaniesServiceImpl implements SubSubCompaniesService {
 
     @Override
     public Integer earn(Integer id) {
-    Integer integer = subSubCompaniesRepo.earn(id);
+        Integer integer = subSubCompaniesRepo.earn(id);
         return integer;
     }
 

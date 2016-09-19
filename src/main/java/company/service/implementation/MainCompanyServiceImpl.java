@@ -1,7 +1,11 @@
 package company.service.implementation;
 
 import company.entity.MainCompany;
+import company.entity.SubCompanies;
+import company.entity.SubSubCompanies;
 import company.repo.MainCompanyRepo;
+import company.repo.SubCompaniesRepo;
+import company.repo.SubSubCompaniesRepo;
 import company.service.MainCompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +18,21 @@ import java.util.List;
 @Service
 public class MainCompanyServiceImpl implements MainCompanyService {
 
-   @Autowired
-   private MainCompanyRepo mainCompanyRepo;
+    @Autowired
+    private MainCompanyRepo mainCompanyRepo;
+
+
+    //ці два наступних репо потрібні, щоб можна було доступитись до будь яких полів цих ентіті(нам треба тільки до суми заробітку)
+
+    @Autowired
+    private SubCompaniesRepo subCompaniesRepo;
+
+    @Autowired
+    private SubSubCompaniesRepo subSubCompaniesRepo;
+
+
+
+
 
     @Override
     public void add(MainCompany mainCompany) {
@@ -35,7 +52,7 @@ public class MainCompanyServiceImpl implements MainCompanyService {
 
     @Override
     public void remove(int id) {
-    mainCompanyRepo.delete(id);
+        mainCompanyRepo.delete(id);
     }
 
     @Override
@@ -51,12 +68,25 @@ public class MainCompanyServiceImpl implements MainCompanyService {
     @Override
     public Integer earn(Integer id) {
         Integer integer = mainCompanyRepo.earn(id);
+
+
         return integer;
     }
 
     @Override
-    public Integer total() {
-       Integer integer = mainCompanyRepo.totalSum();
+    public Integer total(int id) {
+        Integer integer = mainCompanyRepo.totalSum();
+        int subEarn = 0;
+        List<SubCompanies>subCompanies = subCompaniesRepo.byMainCompany(id);
+        for (SubCompanies sc:subCompanies) {
+            subEarn += sc.getAnnual_earnings();
+        }
+        // int subSubEarn = 0;
+//        List<SubSubCompanies> subSubCompanies = subSubCompaniesRepo.bySubCompany(id);
+//        for (SubSubCompanies ssc:subSubCompanies) {
+//            subSubEarn+=ssc.getAnnual_earnings();
+//        }
+        integer += subEarn;
         return integer;
     }
 }

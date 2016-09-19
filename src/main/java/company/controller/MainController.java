@@ -181,7 +181,7 @@ public class MainController {
     public String totalSub(@PathVariable String id, Model model){
         SubCompanies subCompanies = subCompaniesService.findOneById(Integer.parseInt(id));
         model.addAttribute("earn", subCompanies);
-        Integer integer = subCompaniesService.total() + subCompanies.getAnnual_earnings();
+        Integer integer = subCompaniesService.total(Integer.parseInt(id)) + subCompanies.getAnnual_earnings();
         model.addAttribute("total", integer);
        // System.out.println(integer);
         return "totalSub";
@@ -191,7 +191,7 @@ public class MainController {
     public String mainSub(@PathVariable String id, Model model){
         MainCompany mainCompany = mainCompanyService.findOneById(Integer.parseInt(id));
         model.addAttribute("earn", mainCompany);
-        Integer integer = mainCompanyService.total() + mainCompany.getAnnual_earnings();
+        Integer integer = mainCompanyService.total(Integer.parseInt(id)) + mainCompany.getAnnual_earnings();
         model.addAttribute("total", integer);
         // System.out.println(integer);
         return "totalMain";
