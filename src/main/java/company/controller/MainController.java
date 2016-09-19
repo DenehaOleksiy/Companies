@@ -187,6 +187,7 @@ public class MainController {
         MainCompany mainCompany = mainCompanyService.findOneById(Integer.parseInt(id));
         model.addAttribute("earn", mainCompany);
         Integer integer = mainCompanyService.total(Integer.parseInt(id));
+        integer += mainCompany.getAnnual_earnings();
         model.addAttribute("total", integer);
          System.out.println(integer);
         return "totalMain";
@@ -197,6 +198,7 @@ public class MainController {
         SubCompanies subCompanies = subCompaniesService.findOneById(Integer.parseInt(id));
         model.addAttribute("earn", subCompanies);
         Integer integer = subCompaniesService.total(Integer.parseInt(id));
+        integer += subCompanies.getAnnual_earnings();
         model.addAttribute("total", integer);
         // System.out.println(integer);
         return "totalSub";

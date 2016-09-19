@@ -89,7 +89,6 @@ public class SubCompaniesServiceImpl implements SubCompaniesService {
     public Integer total(int id) {
         int subEarn = 0;
         List<SubSubCompanies> subSubCompanies = subSubCompaniesRepo.findAll();
-
         for (SubSubCompanies ssc:subSubCompanies) {
            if(id==ssc.getSubId()){
             subEarn += ssc.getAnnual_earnings();
