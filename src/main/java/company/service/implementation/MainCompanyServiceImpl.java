@@ -68,8 +68,6 @@ public class MainCompanyServiceImpl implements MainCompanyService {
     @Override
     public Integer earn(Integer id) {
         Integer integer = mainCompanyRepo.earn(id);
-
-
         return integer;
     }
 
