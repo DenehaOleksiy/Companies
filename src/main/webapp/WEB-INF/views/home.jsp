@@ -14,6 +14,7 @@
 </head>
 <body>
 <ul>
+    <li><a href="/tree">Show Companies tree</a></li>
     <li><a href="/showMain">Show all mainCompanies</a></li>
     <li><a href="/subAll">Show all subCompanies</a></li>
     <li><a href="/subSubAll">Show all subSubCompanies</a></li>

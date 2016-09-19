@@ -50,3 +50,53 @@ ul li{
     float: left;
     margin-right: 10px;
 }
+
+.tree{
+    width: 50%;
+    margin: auto;
+    height: auto;
+}
+.treeMain{
+    background-color: lightcoral;
+    border: 1px solid blue;
+    border-radius: 5px;
+    float: left;
+    text-align: center;
+    box-shadow: 5px 5px 7px rgba(0,0,0,0.6);
+    padding: 10px;
+    margin: 20px;
+}
+.treeSub{
+
+    background-color: lightgreen;
+    border: 1px solid blue;
+    border-radius: 5px;
+    float: left;
+    text-align: center;
+    box-shadow: 5px 5px 7px rgba(0,0,0,0.6);
+    padding: 10px;
+    margin: 20px;
+}
+.treeSubSub{
+
+    background-color: lightblue;
+    border: 1px solid blue;
+    border-radius: 5px;
+    float: left;
+    text-align: center;
+    box-shadow: 5px 5px 7px rgba(0,0,0,0.6);
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+}
+.clear{
+    clear:both ;
+}
+h1,h2{
+    text-align: center;
+}
+.home1{
+    padding: 15px;
+    background-color: aquamarine;
+    float: right;
+}

@@ -21,25 +21,16 @@ public class MainCompanyServiceImpl implements MainCompanyService {
     @Autowired
     private MainCompanyRepo mainCompanyRepo;
 
-
-    //ці два наступних репо потрібні, щоб можна було доступитись до будь яких полів цих ентіті(нам треба тільки до суми заробітку)
-
     @Autowired
     private SubCompaniesRepo subCompaniesRepo;
 
     @Autowired
     private SubSubCompaniesRepo subSubCompaniesRepo;
 
-
-
-
-
     @Override
     public void add(MainCompany mainCompany) {
         mainCompanyRepo.save(mainCompany);
     }
-
-//
 
     @Override
     public void edit(Integer id, String name, Integer annual_earnings) {
@@ -74,19 +65,20 @@ public class MainCompanyServiceImpl implements MainCompanyService {
     @Override
     public Integer total(int id) {
         int subEarn = 0;
-        List<SubCompanies>subCompanies = subCompaniesRepo.findAll();
+        int subSubEarn = 0;
+        List<SubCompanies>subCompanies = subCompaniesRepo.byMainCompany(id);
         for (SubCompanies sc:subCompanies) {
-            if(sc.getMainId()==id) {
                 subEarn += sc.getAnnual_earnings();
+
+            int i = sc.getId();
+
+            List<SubSubCompanies> subSubCompanies = subSubCompaniesRepo.bySubCompany(i);
+            for (SubSubCompanies ssc:subSubCompanies) {
+                subSubEarn += ssc.getAnnual_earnings();
             }
         }
-//         int subSubEarn = 0;
-//        List<SubSubCompanies> subSubCompanies = subSubCompaniesRepo.findAll();
-//        for (SubSubCompanies ssc:subSubCompanies) {
-//            subSubEarn+=ssc.getAnnual_earnings();
-//        }
-//        int sum = subEarn + subSubEarn;
-        return subEarn;
+        int sum = subEarn + subSubEarn;
+        return sum;
     }
 
 

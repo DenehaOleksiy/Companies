@@ -1,0 +1,16 @@
+Проект створений на Java.
+Середовище розробки Intellij IDEA.
+Frameworks: Spring MVC, Maven, Hibernate.
+База даних:  MySQL.
+Web Servers: Apache Tomcat
+
+Ієрархія складається з трьох рівнів:
+MainCompany,
+SubCompanies,
+SubSubCompanies.
+
+Зв'язки створені за допомогою анотацій One-To-Many.
+Cтворюємо компанії від Main до SubSub.
+
+На веб не викладав, бо немає нормального безкоштовного хостінга з підтримкою Java, MySQL.
+

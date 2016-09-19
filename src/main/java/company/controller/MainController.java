@@ -155,7 +155,6 @@ public class MainController {
         model.addAttribute("earn",subSubCompanies);
         Integer i = subSubCompaniesService.earn(Integer.parseInt(id));
         model.addAttribute("intes",i);
-        //System.out.println(id);
         return "subSubEarn";
     }
     @RequestMapping(value = "/sub/earn/{id}")
@@ -164,7 +163,6 @@ public class MainController {
         model.addAttribute("earn",subCompanies);
         Integer i = subCompaniesService.earn(Integer.parseInt(id));
         model.addAttribute("intes",i);
-       // System.out.println(id);
         return "subEarn";
     }
     @RequestMapping(value = "/main/earn/{id}")
@@ -176,31 +174,38 @@ public class MainController {
         return "mainEarn";
     }
 
+    //======== total earnings ==========
 
-
-
-
-    //======== total ==========
-
-    @RequestMapping(value = "/main/total/{id}")  //  MainCompany total
+    @RequestMapping(value = "/main/total/{id}")
     public String mainSub(@PathVariable String id, Model model){
         MainCompany mainCompany = mainCompanyService.findOneById(Integer.parseInt(id));
         model.addAttribute("earn", mainCompany);
         Integer integer = mainCompanyService.total(Integer.parseInt(id));
         integer += mainCompany.getAnnual_earnings();
         model.addAttribute("total", integer);
-         System.out.println(integer);
         return "totalMain";
     }
 
-    @RequestMapping(value = "/sub/total/{id}")  // SubCompany total
+    @RequestMapping(value = "/sub/total/{id}")
     public String totalSub(@PathVariable String id, Model model){
         SubCompanies subCompanies = subCompaniesService.findOneById(Integer.parseInt(id));
         model.addAttribute("earn", subCompanies);
         Integer integer = subCompaniesService.total(Integer.parseInt(id));
         integer += subCompanies.getAnnual_earnings();
         model.addAttribute("total", integer);
-        // System.out.println(integer);
         return "totalSub";
+    }
+
+    //============= tree =============
+
+    @RequestMapping(value = "/tree")
+    public String tree(Model model){
+        List<MainCompany>mainCompanies = mainCompanyService.findAll();
+        model.addAttribute("main", mainCompanies);
+        List<SubCompanies>subCompanies = subCompaniesService.findAll();
+        model.addAttribute("sub",subCompanies);
+        List<SubSubCompanies>subSubCompanies = subSubCompaniesService.findAll();
+        model.addAttribute("subSub",subSubCompanies);
+        return "tree";
     }
 }
