@@ -19,9 +19,8 @@ public class SubCompanies {
     private String name;
     @Column
     private int annual_earnings;
-
-
-    private Integer totalSum =0;
+    @Column
+    private Integer mainId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private MainCompany mainCompany;
@@ -36,13 +35,12 @@ public class SubCompanies {
 
     }
 
-    public Integer getTotalSum() {
-        return totalSum;
+    public Integer getMainId() {
+        return mainId;
     }
 
-    public void setTotalSum(Integer totalSum) {
-
-        this.totalSum = totalSum;
+    public void setMainId(Integer mainId) {
+        this.mainId = mainId;
     }
 
     public int getId() {

@@ -61,9 +61,7 @@ public class SubCompaniesServiceImpl implements SubCompaniesService {
         subCompanies.setName(name);
         MainCompany mainCompany = mainCompanyRepo.findOne(mainId);
         subCompanies.setMainCompany(mainCompany);
-        int a = annual_earnings;
-        mainCompany.setTotalSum(mainCompany.getTotalSum() + a);
-        System.out.println(mainCompany.getTotalSum());
+        subCompanies.setMainId(mainId);
         subCompaniesRepo.save(subCompanies);
     }
 
@@ -89,14 +87,14 @@ public class SubCompaniesServiceImpl implements SubCompaniesService {
 
     @Override
     public Integer total(int id) {
-        Integer integer = subCompaniesRepo.totalSum();
-        int subSubEarn = 0;
-        List<SubSubCompanies> subSubCompanies = subSubCompaniesRepo.bySubCompany(id);
+        int subEarn = 0;
+        List<SubSubCompanies> subSubCompanies = subSubCompaniesRepo.findAll();
 
         for (SubSubCompanies ssc:subSubCompanies) {
-            subSubEarn += ssc.getAnnual_earnings();
-        }
-        integer += subSubEarn;
-        return integer;
+           if(id==ssc.getSubId()){
+            subEarn += ssc.getAnnual_earnings();
+        }}
+
+        return subEarn;
     }
 }

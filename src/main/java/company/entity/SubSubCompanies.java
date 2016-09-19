@@ -16,11 +16,21 @@ public class SubSubCompanies {
     private String name;
     @Column
     private int annual_earnings;
+    @Column
+    private Integer subId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private SubCompanies subCompanies;
 
     public SubSubCompanies() {
+    }
+
+    public Integer getSubId() {
+        return subId;
+    }
+
+    public void setSubId(Integer subId) {
+        this.subId = subId;
     }
 
     public int getId() {

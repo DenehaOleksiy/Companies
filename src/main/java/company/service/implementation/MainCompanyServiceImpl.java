@@ -75,18 +75,21 @@ public class MainCompanyServiceImpl implements MainCompanyService {
 
     @Override
     public Integer total(int id) {
-        Integer integer = mainCompanyRepo.totalSum();
         int subEarn = 0;
-        List<SubCompanies>subCompanies = subCompaniesRepo.byMainCompany(id);
+        List<SubCompanies>subCompanies = subCompaniesRepo.findAll();
         for (SubCompanies sc:subCompanies) {
-            subEarn += sc.getAnnual_earnings();
+            if(sc.getMainId()==id) {
+                subEarn += sc.getAnnual_earnings();
+            }
         }
-        // int subSubEarn = 0;
-//        List<SubSubCompanies> subSubCompanies = subSubCompaniesRepo.bySubCompany(id);
+//         int subSubEarn = 0;
+//        List<SubSubCompanies> subSubCompanies = subSubCompaniesRepo.findAll();
 //        for (SubSubCompanies ssc:subSubCompanies) {
 //            subSubEarn+=ssc.getAnnual_earnings();
 //        }
-        integer += subEarn;
-        return integer;
+//        int sum = subEarn + subSubEarn;
+        return subEarn;
     }
+
+
 }

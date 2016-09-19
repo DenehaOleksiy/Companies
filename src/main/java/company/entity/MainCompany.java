@@ -19,23 +19,12 @@ public class MainCompany {
     @Column
     private int annual_earnings;
 
-
-    private Integer totalSum =0;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "mainCompany",fetch = FetchType.EAGER)
     private List<SubCompanies> subCompaniesList;
 
 
 
     public MainCompany() {
-    }
-
-    public Integer getTotalSum() {
-        return totalSum;
-    }
-
-    public void setTotalSum(Integer totalSum) {
-        this.totalSum = totalSum;
     }
 
     public int getId() {

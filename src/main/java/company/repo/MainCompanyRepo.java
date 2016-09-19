@@ -15,8 +15,8 @@ public interface MainCompanyRepo extends JpaRepository<MainCompany,Integer> {
     @Query("select  a.annual_earnings from MainCompany a where a.id =:param")
     Integer earn(@Param("param") Integer id);
 
-    @Query("select a.totalSum from MainCompany a")
-    Integer totalSum();
+//    @Query("select a.totalSum from MainCompany a")
+//    Integer totalSum();
 
 
 }

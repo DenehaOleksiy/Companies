@@ -16,8 +16,8 @@ public interface SubCompaniesRepo extends JpaRepository<SubCompanies,Integer> {
     @Query("select a.annual_earnings from SubCompanies a where a.id=:param")
     Integer earn(@Param("param") Integer id);
 
-    @Query("select a.totalSum from SubCompanies a")
-    Integer totalSum();
+//    @Query("select a.totalSum from SubCompanies a")
+//    Integer totalSum();
 
     @Query("select subCompany from SubCompanies subCompany where subCompany.id=:id")
     List<SubCompanies> byMainCompany(@Param("id") Integer id);

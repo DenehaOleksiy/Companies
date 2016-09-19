@@ -19,5 +19,5 @@ public interface SubCompaniesService {
    void edit(Integer id,String name,Integer annual_earnings,Integer mainId);
    Integer earn(Integer id);
 
-    Integer total(int id);
+    Integer total(int Id);
 }

@@ -176,24 +176,29 @@ public class MainController {
         return "mainEarn";
     }
 
-    //======== total ==========
-    @RequestMapping(value = "/sub/total/{id}")
-    public String totalSub(@PathVariable String id, Model model){
-        SubCompanies subCompanies = subCompaniesService.findOneById(Integer.parseInt(id));
-        model.addAttribute("earn", subCompanies);
-        Integer integer = subCompaniesService.total(Integer.parseInt(id)) + subCompanies.getAnnual_earnings();
-        model.addAttribute("total", integer);
-       // System.out.println(integer);
-        return "totalSub";
-    }
 
-    @RequestMapping(value = "/main/total/{id}")
+
+
+
+    //======== total ==========
+
+    @RequestMapping(value = "/main/total/{id}")  //  MainCompany total
     public String mainSub(@PathVariable String id, Model model){
         MainCompany mainCompany = mainCompanyService.findOneById(Integer.parseInt(id));
         model.addAttribute("earn", mainCompany);
-        Integer integer = mainCompanyService.total(Integer.parseInt(id)) + mainCompany.getAnnual_earnings();
+        Integer integer = mainCompanyService.total(Integer.parseInt(id));
+        model.addAttribute("total", integer);
+         System.out.println(integer);
+        return "totalMain";
+    }
+
+    @RequestMapping(value = "/sub/total/{id}")  // SubCompany total
+    public String totalSub(@PathVariable String id, Model model){
+        SubCompanies subCompanies = subCompaniesService.findOneById(Integer.parseInt(id));
+        model.addAttribute("earn", subCompanies);
+        Integer integer = subCompaniesService.total(Integer.parseInt(id));
         model.addAttribute("total", integer);
         // System.out.println(integer);
-        return "totalMain";
+        return "totalSub";
     }
 }
